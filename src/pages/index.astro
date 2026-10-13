@@ -1,5 +1,7 @@
 
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const categories = [
   "All work",
   "Product development",
@@ -14,17 +16,18 @@ const projects = [
     title: "Baja SAE Chassis",
     category: "Vehicle engineering",
     description: "Tubular chassis CAD design and structural packaging.",
-    image: `${import.meta.env.BASE_URL}images/baja/baja_chassis_render.jpg`,
+    image: `${base}/images/baja/baja_chassis_render.jpg`,
     color: "sage",
     visual: "CAD · CHASSIS DESIGN",
-    href: `${import.meta.env.BASE_URL}projects/baja`,
+    href: `${base}/projects/baja`,
   },
   {
     number: "02",
     title: "Omni-Directional Robot",
     category: "Robotics",
-    description: "Mechanical assembly, fabricated chassis, and 3D-printed components.",
-    image: "/images/omni_robot/omni_robot_physical_assy.jpg",
+    description:
+      "Mechanical assembly, fabricated chassis, and 3D-printed components.",
+    image: `${base}/images/omni_robot/omni_robot_physical_assy.jpg`,
     color: "blue",
     visual: "DESIGN · FABRICATION",
     href: "#contact",
@@ -34,7 +37,7 @@ const projects = [
     title: "Line-Tracking Robot",
     category: "Robotics",
     description: "Robot development through iterative mechanical design.",
-    image: "/images/line_tracking_duck/line_tracking_robot_mvp.jpg",
+    image: `${base}/images/line_tracking_duck/line_tracking_robot_mvp.jpg`,
     color: "yellow",
     visual: "PROTOTYPING · ITERATION",
     href: "#contact",
@@ -43,8 +46,9 @@ const projects = [
     number: "04",
     title: "Multi-Mechanism CNC Mill",
     category: "Mechanical design",
-    description: "Mechanical subsystems including the bed, spindle, and axis assemblies.",
-    image: "/images/multi-mech_CNC_mill/multi_mech_CNC_mill.png",
+    description:
+      "Mechanical subsystems including the bed, spindle, and axis assemblies.",
+    image: `${base}/images/multi-mech_CNC_mill/multi_mech_CNC_mill.png`,
     color: "lavender",
     visual: "CAD · MECHANICAL SYSTEMS",
     href: "#contact",
@@ -54,7 +58,7 @@ const projects = [
     title: "UTAT UAS Mechanical Systems",
     category: "Mechanical design",
     description: "CAD development of a baffle system and winch mechanism.",
-    image: "/images/UTAT_UAS/UTAT_UAS_baffle_system_CAD.png",
+    image: `${base}/images/UTAT_UAS/UTAT_UAS_baffle_system_CAD.png`,
     color: "mint",
     visual: "CAD · MECHANISM DESIGN",
     href: "#contact",
@@ -63,12 +67,12 @@ const projects = [
     number: "06",
     title: "Gyroscopic Salad Spinner",
     category: "Mechanical design",
-    description: "CAD modelling and physical prototyping of a geared, nested-ring mechanism.",
-    image: `${import.meta.env.BASE_URL}images/gyro_salad/gyroscope_front.jpg`,
+    description:
+      "CAD modelling and physical prototyping of a geared, nested-ring mechanism.",
+    image: `${base}/images/gyro_salad/gyroscope_front.jpg`,
     color: "yellow",
     visual: "CAD · MECHANISM · PROTOTYPE",
-    href: `${import.meta.env.BASE_URL}projects/gyro_salad`,
-
+    href: `${base}/projects/gyro_salad`,
   },
 ];
 ---
@@ -77,14 +81,20 @@ const projects = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Qin Bei's mechanical engineering portfolio featuring product development, CAD, robotics, and mechanical design." />
+    <meta
+      name="description"
+      content="Qin Bei's mechanical engineering portfolio featuring product development, CAD, robotics, and mechanical design."
+    />
     <meta name="theme-color" content="#f7f5ef" />
     <title>Qin Bei — Engineering Portfolio</title>
   </head>
 
   <body>
     <header class="nav">
-      <a class="wordmark" href="/">Qin Bei<span>.</span></a>
+      <a class="wordmark" href={`${base}/`}>
+        Qin Bei<span>.</span>
+      </a>
+
       <nav aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#about">About</a>
@@ -95,14 +105,24 @@ const projects = [
     <main>
       <section class="intro" id="home">
         <div class="intro-copy">
-          <p class="eyebrow">MECHANICAL ENGINEERING · PRODUCT DEVELOPMENT</p>
-          <h1>I like making<br />things for people<span class="period">.</span></h1>
+          <p class="eyebrow">
+            MECHANICAL ENGINEERING · PRODUCT DEVELOPMENT
+          </p>
+
+          <h1>
+            I like making<br />
+            things for people<span class="period">.</span>
+          </h1>
+
           <p class="intro-description">
             Mechanical design, product development, and robotics —
             from first ideas to things you can hold.
           </p>
         </div>
-        <a class="explore-link" href="#work">EXPLORE MY WORK <span>↓</span></a>
+
+        <a class="explore-link" href="#work">
+          EXPLORE MY WORK <span>↓</span>
+        </a>
       </section>
 
       <section class="work" id="work">
@@ -111,7 +131,10 @@ const projects = [
             <p class="eyebrow">A SELECTION OF THINGS I'VE WORKED ON</p>
             <h2>Selected work<span class="period">.</span></h2>
           </div>
-          <p class="work-count"><span id="project-count">{projects.length}</span> PROJECTS</p>
+
+          <p class="work-count">
+            <span id="project-count">{projects.length}</span> PROJECTS
+          </p>
         </div>
 
         <div class="filters" aria-label="Filter projects">
@@ -130,7 +153,11 @@ const projects = [
         <div class="project-grid" id="project-grid">
           {projects.map((project) => (
             <article class="project-card" data-category={project.category}>
-              <a class="project-link" href={project.href} aria-label={`View ${project.title}`}>
+              <a
+                class="project-link"
+                href={project.href}
+                aria-label={`View ${project.title}`}
+              >
                 <div class={`project-image ${project.color}`}>
                   <img
                     class="project-photo"
@@ -138,6 +165,7 @@ const projects = [
                     alt={project.title}
                     loading="lazy"
                   />
+
                   <span class="project-number">{project.number}</span>
                   <span class="image-caption">{project.visual}</span>
                   <span class="card-arrow" aria-hidden="true">↗</span>
@@ -146,7 +174,9 @@ const projects = [
                 <div class="project-info">
                   <p class="project-category">{project.category}</p>
                   <h3>{project.title}</h3>
-                  <p class="project-description">{project.description}</p>
+                  <p class="project-description">
+                    {project.description}
+                  </p>
                 </div>
               </a>
             </article>
@@ -158,14 +188,20 @@ const projects = [
 
       <section class="about" id="about">
         <p class="eyebrow">A LITTLE ABOUT ME</p>
+
         <div class="about-grid">
-          <h2>Curious by nature.<br /><span>Practical by design.</span></h2>
+          <h2>
+            Curious by nature.<br />
+            <span>Practical by design.</span>
+          </h2>
+
           <div class="about-copy">
             <p>
               I'm a mechanical engineering student interested in how thoughtful
               design can make everyday products and complex systems work better
               for people.
             </p>
+
             <p>
               I enjoy turning ideas into reality through CAD, prototyping,
               fabrication, testing, and iterative problem-solving.
@@ -176,9 +212,19 @@ const projects = [
 
       <section class="contact" id="contact">
         <p class="eyebrow">LET'S CONNECT</p>
-        <h2>Have something<br />interesting in mind<span class="period">?</span></h2>
-        <p>Always happy to talk about engineering, hardware, and product design.</p>
-        <a class="contact-link" href="mailto:YOUR_EMAIL@example.com">Get in touch ↗</a>
+
+        <h2>
+          Have something<br />
+          interesting in mind<span class="period">?</span>
+        </h2>
+
+        <p>
+          Always happy to talk about engineering, hardware, and product design.
+        </p>
+
+        <a class="contact-link" href="mailto:YOUR_EMAIL@example.com">
+          Get in touch ↗
+        </a>
       </section>
     </main>
 
@@ -212,6 +258,7 @@ const projects = [
           card.getAttribute("data-category") === selected;
 
         card.hidden = !visible;
+
         if (visible) visibleCount++;
       });
 
@@ -221,8 +268,15 @@ const projects = [
 </script>
 
 <style>
-  :global(*) { box-sizing: border-box; }
-  :global(html) { scroll-behavior: smooth; scroll-padding-top: 85px; }
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+  }
+
   :global(body) {
     margin: 0;
     background: #f7f5ef;
@@ -230,7 +284,11 @@ const projects = [
     font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  :global(a) { color: inherit; text-decoration: none; }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
 
   .nav {
     min-height: 72px;
@@ -240,11 +298,31 @@ const projects = [
     justify-content: space-between;
     border-bottom: 1px solid #e4e1d7;
   }
-  .wordmark { font-size: 17px; font-weight: 700; letter-spacing: -0.7px; }
-  .wordmark span, .period { color: #648365; }
-  nav { display: flex; gap: clamp(18px, 3vw, 42px); }
-  nav a { font-size: 12px; color: #55574f; }
-  nav a:hover { color: #648365; }
+
+  .wordmark {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+  }
+
+  .wordmark span,
+  .period {
+    color: #648365;
+  }
+
+  nav {
+    display: flex;
+    gap: clamp(18px, 3vw, 42px);
+  }
+
+  nav a {
+    font-size: 12px;
+    color: #55574f;
+  }
+
+  nav a:hover {
+    color: #648365;
+  }
 
   .intro {
     min-height: 290px;
@@ -254,6 +332,7 @@ const projects = [
     justify-content: space-between;
     gap: 32px;
   }
+
   .eyebrow {
     color: #74766b;
     font-size: 10px;
@@ -261,7 +340,11 @@ const projects = [
     letter-spacing: 1.5px;
     line-height: 1.7;
   }
-  .intro .eyebrow { margin-bottom: 18px; }
+
+  .intro .eyebrow {
+    margin-bottom: 18px;
+  }
+
   h1 {
     margin: 0;
     font-size: clamp(45px, 6.7vw, 88px);
@@ -269,6 +352,7 @@ const projects = [
     font-weight: 500;
     letter-spacing: -0.075em;
   }
+
   .intro-description {
     max-width: 450px;
     margin: 23px 0 0;
@@ -276,6 +360,7 @@ const projects = [
     font-size: 14px;
     line-height: 1.8;
   }
+
   .explore-link {
     flex-shrink: 0;
     display: inline-flex;
@@ -287,9 +372,16 @@ const projects = [
     font-size: 10px;
     letter-spacing: 0.8px;
   }
-  .explore-link span { color: #648365; }
 
-  .work { padding: 36px 6% 80px; border-top: 1px solid #e4e1d7; }
+  .explore-link span {
+    color: #648365;
+  }
+
+  .work {
+    padding: 36px 6% 80px;
+    border-top: 1px solid #e4e1d7;
+  }
+
   .work-heading {
     display: flex;
     justify-content: space-between;
@@ -297,13 +389,18 @@ const projects = [
     gap: 20px;
     margin-bottom: 24px;
   }
-  .work-heading .eyebrow { margin-bottom: 9px; }
+
+  .work-heading .eyebrow {
+    margin-bottom: 9px;
+  }
+
   h2 {
     margin: 0;
     font-size: clamp(30px, 4vw, 46px);
     font-weight: 500;
     letter-spacing: -0.06em;
   }
+
   .work-count {
     margin: 0 0 5px;
     color: #77786f;
@@ -311,7 +408,14 @@ const projects = [
     letter-spacing: 1px;
     white-space: nowrap;
   }
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
   .filter {
     border: 1px solid #dfdcd1;
     border-radius: 999px;
@@ -322,17 +426,36 @@ const projects = [
     font-size: 11px;
     cursor: pointer;
   }
-  .filter:hover { border-color: #8a9d85; }
-  .filter.active { background: #344936; border-color: #344936; color: #fff; }
+
+  .filter:hover {
+    border-color: #8a9d85;
+  }
+
+  .filter.active {
+    background: #344936;
+    border-color: #344936;
+    color: #fff;
+  }
 
   .project-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 38px 18px;
   }
-  .project-card { min-width: 0; }
-  .project-card[hidden] { display: none; }
-  .project-link { display: block; }
+
+  .project-card {
+    min-width: 0;
+  }
+
+  .project-card[hidden] {
+    display: none;
+  }
+
+  .project-link {
+    display: block;
+    cursor: pointer;
+  }
+
   .project-image {
     position: relative;
     aspect-ratio: 1.13 / 1;
@@ -340,12 +463,30 @@ const projects = [
     isolation: isolate;
     background: #e3e5dc;
   }
-  .sage { background: #dce6d7; }
-  .blue { background: #dce8f6; }
-  .yellow { background: #f3e4b6; }
-  .coral { background: #f0d8cc; }
-  .lavender { background: #e5def1; }
-  .mint { background: #d4e7df; }
+
+  .sage {
+    background: #dce6d7;
+  }
+
+  .blue {
+    background: #dce8f6;
+  }
+
+  .yellow {
+    background: #f3e4b6;
+  }
+
+  .coral {
+    background: #f0d8cc;
+  }
+
+  .lavender {
+    background: #e5def1;
+  }
+
+  .mint {
+    background: #d4e7df;
+  }
 
   .project-photo {
     display: block;
@@ -356,8 +497,13 @@ const projects = [
     object-fit: cover;
     transition: transform 250ms ease;
   }
-  .project-card:hover .project-photo { transform: scale(1.035); }
-  .project-number, .image-caption {
+
+  .project-card:hover .project-photo {
+    transform: scale(1.035);
+  }
+
+  .project-number,
+  .image-caption {
     position: absolute;
     z-index: 2;
     color: #444940;
@@ -366,8 +512,18 @@ const projects = [
     font-size: 9px;
     letter-spacing: 0.7px;
   }
-  .project-number { top: 12px; left: 12px; }
-  .image-caption { bottom: 12px; left: 12px; font-size: 8px; }
+
+  .project-number {
+    top: 12px;
+    left: 12px;
+  }
+
+  .image-caption {
+    bottom: 12px;
+    left: 12px;
+    font-size: 8px;
+  }
+
   .card-arrow {
     position: absolute;
     top: 10px;
@@ -383,8 +539,15 @@ const projects = [
     font-size: 17px;
     transition: transform 180ms ease;
   }
-  .project-card:hover .card-arrow { transform: translate(2px, -2px); }
-  .project-info { padding-top: 15px; }
+
+  .project-card:hover .card-arrow {
+    transform: translate(2px, -2px);
+  }
+
+  .project-info {
+    padding-top: 15px;
+  }
+
   .project-category {
     margin: 0 0 7px;
     color: #6b806b;
@@ -393,8 +556,15 @@ const projects = [
     letter-spacing: 0.8px;
     text-transform: uppercase;
   }
-  .project-card:nth-child(3n + 2) .project-category { color: #557da9; }
-  .project-card:nth-child(3n) .project-category { color: #a47b29; }
+
+  .project-card:nth-child(3n + 2) .project-category {
+    color: #557da9;
+  }
+
+  .project-card:nth-child(3n) .project-category {
+    color: #a47b29;
+  }
+
   .project-info h3 {
     margin: 0 0 7px;
     font-size: 17px;
@@ -402,19 +572,64 @@ const projects = [
     font-weight: 500;
     letter-spacing: -0.4px;
   }
-  .project-description { margin: 0; color: #707168; font-size: 12px; line-height: 1.7; }
-  .gallery-note { margin: 38px 0 0; color: #7b7c72; font-size: 11px; }
 
-  .about { padding: 70px 6%; background: #e8eddf; }
-  .about > .eyebrow { margin-bottom: 24px; }
-  .about-grid { display: grid; grid-template-columns: 1.1fr 0.8fr; gap: 50px; }
-  .about-grid h2 { font-size: clamp(32px, 4.5vw, 55px); line-height: 1.13; }
-  .about-grid h2 span { color: #788775; }
-  .about-copy p { color: #55594f; font-size: 13px; line-height: 1.9; }
+  .project-description {
+    margin: 0;
+    color: #707168;
+    font-size: 12px;
+    line-height: 1.7;
+  }
 
-  .contact { padding: 75px 6%; background: #f1e5c7; }
-  .contact .eyebrow { margin-bottom: 20px; }
-  .contact h2 { font-size: clamp(36px, 5vw, 64px); line-height: 1.08; }
+  .gallery-note {
+    margin: 38px 0 0;
+    color: #7b7c72;
+    font-size: 11px;
+  }
+
+  .about {
+    padding: 70px 6%;
+    background: #e8eddf;
+  }
+
+  .about > .eyebrow {
+    margin-bottom: 24px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.8fr;
+    gap: 50px;
+  }
+
+  .about-grid h2 {
+    font-size: clamp(32px, 4.5vw, 55px);
+    line-height: 1.13;
+  }
+
+  .about-grid h2 span {
+    color: #788775;
+  }
+
+  .about-copy p {
+    color: #55594f;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .contact {
+    padding: 75px 6%;
+    background: #f1e5c7;
+  }
+
+  .contact .eyebrow {
+    margin-bottom: 20px;
+  }
+
+  .contact h2 {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.08;
+  }
+
   .contact > p:not(.eyebrow) {
     max-width: 460px;
     margin-top: 20px;
@@ -422,6 +637,7 @@ const projects = [
     font-size: 13px;
     line-height: 1.8;
   }
+
   .contact-link {
     display: inline-block;
     margin-top: 12px;
@@ -429,7 +645,11 @@ const projects = [
     border-bottom: 1px solid #88816b;
     font-size: 13px;
   }
-  .contact-link:hover { color: #648365; }
+
+  .contact-link:hover {
+    color: #648365;
+  }
+
   footer {
     display: flex;
     justify-content: space-between;
@@ -441,11 +661,17 @@ const projects = [
   }
 
   @media (min-width: 1500px) {
-    .nav, .intro, .work, .about, .contact, footer {
+    .nav,
+    .intro,
+    .work,
+    .about,
+    .contact,
+    footer {
       padding-left: max(6%, calc((100% - 1320px) / 2));
       padding-right: max(6%, calc((100% - 1320px) / 2));
     }
   }
+
   @media (max-width: 760px) {
     .intro {
       min-height: auto;
@@ -454,27 +680,95 @@ const projects = [
       flex-direction: column;
       gap: 25px;
     }
-    .intro-description { max-width: 400px; }
-    .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 13px; }
-    .project-info h3 { font-size: 15px; }
-    .about-grid { grid-template-columns: 1fr; gap: 24px; }
+
+    .intro-description {
+      max-width: 400px;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px 13px;
+    }
+
+    .project-info h3 {
+      font-size: 15px;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
   }
+
   @media (max-width: 480px) {
-    .nav { min-height: 64px; padding: 0 5%; }
-    .wordmark { font-size: 15px; }
-    nav { gap: 13px; }
-    nav a { font-size: 10px; }
-    .intro, .work, .about, .contact { padding-left: 5%; padding-right: 5%; }
-    .intro { padding-top: 48px; padding-bottom: 40px; }
-    h1 { font-size: clamp(40px, 10.5vw, 54px); }
-    .project-grid { grid-template-columns: 1fr; gap: 28px; }
-    .project-image { aspect-ratio: 1.15 / 1; }
-    .filters { gap: 7px; }
-    .filter { padding: 8px 11px; font-size: 10px; }
-    footer { flex-wrap: wrap; padding-left: 5%; padding-right: 5%; }
+    .nav {
+      min-height: 64px;
+      padding: 0 5%;
+    }
+
+    .wordmark {
+      font-size: 15px;
+    }
+
+    nav {
+      gap: 13px;
+    }
+
+    nav a {
+      font-size: 10px;
+    }
+
+    .intro,
+    .work,
+    .about,
+    .contact {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .intro {
+      padding-top: 48px;
+      padding-bottom: 40px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 10.5vw, 54px);
+    }
+
+    .project-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .project-image {
+      aspect-ratio: 1.15 / 1;
+    }
+
+    .filters {
+      gap: 7px;
+    }
+
+    .filter {
+      padding: 8px 11px;
+      font-size: 10px;
+    }
+
+    footer {
+      flex-wrap: wrap;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
   }
+
   @media (prefers-reduced-motion: reduce) {
-    :global(html) { scroll-behavior: auto; }
-    *, *::before, *::after { transition: none !important; }
+    :global(html) {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+    }
   }
 </style>
