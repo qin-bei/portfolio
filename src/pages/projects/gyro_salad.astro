@@ -1,0 +1,950 @@
+
+---
+const project = {
+  timeline: "January – May",
+  role: "Mechanical Designer · CAD & Prototyping",
+  tools: "Fusion 360 · 3D Printing",
+  course: "APS112 · Engineering Strategies & Practice II",
+};
+
+const contributions = [
+  {
+    title: "Research & development",
+    category: "RESEARCH",
+    description:
+      "Researched existing salad spinners, assessed design limitations, and helped develop the proposed mechanism around the client's requirements.",
+    color: "sage",
+    icon: "◇",
+  },
+  {
+    title: "Mechanical design",
+    category: "CAD & VISUALIZATION",
+    description:
+      "Created CAD models and renders to communicate the three-axis gear mechanism and proposed assembly.",
+    color: "blue",
+    icon: "○",
+  },
+  {
+    title: "Prototype development",
+    category: "PROTOTYPING",
+    description:
+      "Developed a physical prototype to demonstrate the mechanism and support the team's design evaluation.",
+    color: "yellow",
+    icon: "＋",
+  },
+];
+
+const gallery = [
+  {
+    src: "/images/gyro_salad/gyroscope_CAD.jpg",
+    alt: "Rendered CAD model of the proposed gyroscopic salad spinner",
+    caption: "CAD RENDER",
+  },
+  {
+    src: "/images/gyro_salad/gyroscope_collapsed.jpg",
+    alt: "Gyroscopic salad spinner prototype showing the gear mechanism",
+    caption: "GEAR MECHANISM",
+  },
+  {
+    src: "/images/gyro_salad/gyroscope_front.jpg",
+    alt: "Front view of the physical gyroscopic salad spinner prototype",
+    caption: "FRONT VIEW",
+  },
+  {
+    src: "/images/gyro_salad/gyroscope_three_forth.jpg",
+    alt: "Three-quarter view of the gyroscopic salad spinner prototype",
+    caption: "THREE-QUARTER VIEW",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="description"
+      content="Qin Bei's gyroscopic salad spinner project featuring mechanical design, CAD, prototyping, and product evaluation."
+    />
+
+    <meta name="theme-color" content="#f7f5ef" />
+
+    <title>Gyroscopic Salad Spinner — Qin Bei</title>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+
+    <header class="nav">
+      <a class="wordmark" href="/">Qin Bei<span>.</span></a>
+
+      <nav aria-label="Main navigation">
+        <a href="/#work">Work</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+
+      <section class="hero">
+        <div class="hero-copy">
+          <a class="back-link" href="/#work">← All projects</a>
+
+          <p class="eyebrow">
+            PRODUCT DEVELOPMENT · MECHANICAL DESIGN
+          </p>
+
+          <h1>Gyroscopic<br />Salad Spinner<span>.</span></h1>
+
+          <p class="subtitle">
+            Rethinking a familiar kitchen product through a three-axis
+            rotational mechanism designed to improve water removal.
+          </p>
+        </div>
+
+        <figure class="hero-image">
+          <img
+            src="/images/gyro_salad/gyroscope_CAD.jpg"
+            alt="Rendered CAD model of the gyroscopic salad spinner"
+          />
+
+          <figcaption>CONCEPT DEVELOPMENT · CAD RENDER</figcaption>
+        </figure>
+
+        <div class="metadata">
+          <div>
+            <span class="meta-label">TIMELINE</span>
+            <span>{project.timeline}</span>
+          </div>
+
+          <div>
+            <span class="meta-label">ROLE</span>
+            <span>{project.role}</span>
+          </div>
+
+          <div>
+            <span class="meta-label">TOOLS</span>
+            <span>{project.tools}</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 01: PROJECT OVERVIEW -->
+
+      <section class="overview section">
+        <div class="section-index">01</div>
+
+        <div class="overview-copy">
+          <h2>Project overview</h2>
+
+          <p>
+            During my APS112, Engineering Strategies &amp; Practice II
+            design course at the University of Toronto, I worked as part
+            of a team of six on the design, prototyping, and presentation
+            of a new salad drying device for an industry client. The
+            client was dissatisfied with the effectiveness of existing
+            salad drying devices and requested a more efficient solution.
+          </p>
+        </div>
+      </section>
+
+      <!-- 02: PROPOSED SOLUTION -->
+
+      <section class="proposed-solution section">
+        <div class="section-index">02</div>
+
+        <div class="section-content">
+          <h2>Proposed solution</h2>
+
+          <p class="section-intro">
+            To address this challenge, our team met with the client and
+            developed an engineering specification detailing the
+            client's needs and additional desired features. We also
+            conducted market analysis to evaluate existing products
+            and identify opportunities for improvement.
+          </p>
+
+          <p class="section-intro">
+            Based on our research, we proposed a novel method to dry
+            greens that aimed to maximize efficiency while addressing
+            the shortcomings of traditional designs.
+          </p>
+
+          <p class="section-intro">
+            Our solution was a three-axis salad spinner driven by gears,
+            incorporating mechanical, electrical, and ergonomic
+            considerations to improve overall user experience and
+            effectiveness. Through client feedback and testing, our
+            final prototype was developed and presented.
+          </p>
+        </div>
+      </section>
+
+      <!-- 03: RESULTS -->
+
+      <section class="results section">
+        <div class="section-index">03</div>
+
+        <div class="section-content">
+          <h2>Results</h2>
+
+          <p class="section-intro">
+            The goal was to improve the efficiency of water expulsion
+            during the spinning process. The design utilizes gears and
+            multiple axes to accomplish this.
+          </p>
+
+          <div class="results-grid">
+            <article class="result">
+              <span class="result-number">25<span>%</span></span>
+
+              <p class="result-title">More water expelled</p>
+
+              <p class="result-detail">
+                Through five 45-second trials, the three-axis rotational
+                system expelled 25% more water than the conventional
+                single-axis spinner.
+              </p>
+            </article>
+
+            <article class="result">
+              <span class="result-number">11<span>s</span></span>
+
+              <p class="result-title">Time saved per cycle</p>
+
+              <p class="result-detail">
+                An estimated 11 seconds saved per cycle, assuming
+                a constant rate of water loss.
+              </p>
+            </article>
+
+            <article class="result">
+              <span class="result-number">59<span>%</span></span>
+
+              <p class="result-title">Rated five stars</p>
+
+              <p class="result-detail">
+                In a campus-wide usability survey, approximately 59%
+                of respondents rated the proposed design five stars
+                for ease of use.
+              </p>
+            </article>
+          </div>
+
+          <p class="results-note">
+            Performance trials and user feedback helped evaluate the
+            proposed design and identify opportunities for improvement.
+          </p>
+        </div>
+      </section>
+
+      <!-- 04: MY CONTRIBUTIONS -->
+
+      <section class="contributions section">
+        <div class="section-index">04</div>
+
+        <div class="section-content">
+          <h2>My contributions</h2>
+
+          <div class="contribution-grid">
+            {contributions.map((item) => (
+              <article class="contribution">
+                <div
+                  class:list={["contribution-icon", item.color]}
+                  aria-hidden="true"
+                >
+                  {item.icon}
+                </div>
+
+                <div class="contribution-copy">
+                  <p class="contribution-category">
+                    {item.category}
+                  </p>
+
+                  <h3>{item.title}</h3>
+
+                  <p class="contribution-description">
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- 05: GALLERY -->
+
+      <section class="gallery-section section">
+        <div class="section-index">05</div>
+
+        <div class="section-content">
+          <div class="section-heading">
+            <div>
+              <h2>Prototyping</h2>
+
+            </div>
+
+            <span class="eyebrow">DESIGN · BUILD · TEST</span>
+          </div>
+
+          <div class="gallery-grid">
+            {gallery.map((image, index) => (
+              <figure class="gallery-item">
+                <div class="gallery-image">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                  />
+                </div>
+
+                <figcaption>
+                  <span>{image.caption}</span>
+
+                  <span class="gallery-index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- NEXT PROJECT -->
+
+      <section class="next-project">
+        <p class="eyebrow">MORE PROJECTS</p>
+
+        <h2>
+          More things I've been building<span>.</span>
+        </h2>
+
+        <a href="/#work">Back to selected work ↗</a>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <a class="wordmark" href="/">Qin Bei<span>.</span></a>
+
+      <span>MECHANICAL ENGINEERING · PRODUCT DEVELOPMENT</span>
+
+      <a href="/#contact">GET IN TOUCH ↗</a>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #f7f5ef;
+    color: #252620;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* NAVIGATION */
+
+  .nav {
+    min-height: 72px;
+    padding: 0 5.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dedbd2;
+  }
+
+  .wordmark {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+  }
+
+  .wordmark span,
+  h1 span,
+  .next-project h2 span {
+    color: #648365;
+  }
+
+  nav {
+    display: flex;
+    gap: clamp(18px, 3vw, 42px);
+  }
+
+  nav a {
+    color: #55574f;
+    font-size: 12px;
+    transition: color 180ms ease;
+  }
+
+  nav a:hover,
+  .back-link:hover {
+    color: #648365;
+  }
+
+  /* TYPOGRAPHY */
+
+  h1,
+  h2,
+  h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+  }
+
+  .eyebrow,
+  .meta-label {
+    color: #72766b;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    line-height: 1.7;
+  }
+
+  h2 {
+    margin: 0 0 18px;
+    font-size: clamp(28px, 3.1vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.065em;
+    font-weight: 500;
+  }
+
+  /* HERO */
+
+  .hero {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    column-gap: 38px;
+    align-items: center;
+    padding: 28px 5.5% 24px;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 32px;
+    color: #686a60;
+    font-size: 12px;
+  }
+
+  .hero-copy > .eyebrow {
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(44px, 5.5vw, 76px);
+    line-height: 0.98;
+    letter-spacing: -0.075em;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    max-width: 420px;
+    margin: 20px 0 0;
+    color: #686961;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  figure {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .hero-image {
+    background: #e7e8e5;
+  }
+
+  .hero-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.35 / 1;
+    object-fit: contain;
+  }
+
+  figcaption {
+    padding: 10px 0;
+    color: #72746b;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  /* PROJECT METADATA */
+
+  .metadata {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 24px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #dedbd2;
+  }
+
+  .metadata > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding-right: 15px;
+  }
+
+  .metadata > div + div {
+    padding-left: 24px;
+    border-left: 1px solid #d7d4cb;
+  }
+
+  .metadata > div > span:last-child {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  /* SHARED SECTIONS */
+
+  .section {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    column-gap: 14px;
+    margin: 0 5.5%;
+    padding: 28px 0;
+    border-top: 1px solid #dedbd2;
+  }
+
+  .section-index {
+    padding-top: 3px;
+    color: #648365;
+    font-size: 11px;
+  }
+
+  .section-content,
+  .overview-copy {
+    min-width: 0;
+  }
+
+  /* PROJECT OVERVIEW */
+
+  .overview-copy p {
+    max-width: 850px;
+    margin: 0;
+    color: #65675e;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  /* PROPOSED SOLUTION */
+
+  .section-intro {
+    max-width: 850px;
+    margin: -4px 0 24px;
+    color: #65675e;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .proposed-solution .section-intro + .section-intro {
+    margin-top: 14px;
+  }
+
+  .proposed-solution .section-intro:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESULTS */
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    border: 0;
+  }
+
+  .result {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .result + .result {
+    padding-left: 0;
+    border: 0;
+  }
+
+  .result-number {
+    display: block;
+    margin-bottom: 12px;
+    font-size: clamp(34px, 4.4vw, 54px);
+    line-height: 1;
+    letter-spacing: -0.075em;
+    font-weight: 500;
+  }
+
+  .result-number span {
+    color: #648365;
+  }
+
+  .result-title {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .result-detail {
+    margin: 0;
+    color: #65675e;
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  .results-note {
+    margin: 22px 0 0;
+    color: #77786f;
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  /* MY CONTRIBUTIONS */
+
+  .contribution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .contribution {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    align-content: start;
+    gap: 12px;
+    padding-right: 16px;
+  }
+
+  .contribution + .contribution {
+    padding-left: 18px;
+    border-left: 1px solid #d7d4cb;
+  }
+
+  .contribution-icon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #354b39;
+  }
+
+  .sage {
+    background: #e1e7d7;
+  }
+
+  .blue {
+    background: #dce6ef;
+    color: #354a61;
+  }
+
+  .yellow {
+    background: #f8e6bc;
+    color: #765a24;
+  }
+
+  .contribution-category {
+    margin: 0 0 7px;
+    color: #74766b;
+    font-size: 9px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+
+  .contribution h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: -0.6px;
+    font-weight: 500;
+  }
+
+  .contribution-description {
+    margin: 0;
+    color: #65675e;
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  /* GALLERY */
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .section-heading .eyebrow {
+    white-space: nowrap;
+  }
+
+  .section-heading .section-intro {
+    margin-top: -8px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+
+  .gallery-image {
+    overflow: hidden;
+    background: #e7e8e5;
+  }
+
+  .gallery-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.35 / 1;
+    object-fit: contain;
+    transition: transform 250ms ease;
+  }
+
+  .gallery-item:hover .gallery-image img {
+    transform: scale(1.025);
+  }
+
+  .gallery-item figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid #dedbd2;
+  }
+
+  .gallery-index {
+    color: #648365;
+  }
+
+  /* PROJECT DEVELOPMENT */
+
+  .approach .section-content {
+    max-width: 800px;
+  }
+
+  .approach .section-intro {
+    margin: 0;
+  }
+
+  /* NEXT PROJECT */
+
+  .next-project {
+    margin-top: 8px;
+    padding: 36px 5.5% 45px;
+    background: #eee9dc;
+  }
+
+  .next-project .eyebrow {
+    margin: 0 0 12px;
+  }
+
+  .next-project h2 {
+    margin-bottom: 20px;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -0.07em;
+  }
+
+  .next-project > a {
+    display: inline-block;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #999b8d;
+    font-size: 12px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 24px 5.5%;
+    color: #77786f;
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+
+  /* LARGE SCREENS */
+
+  @media (min-width: 1500px) {
+    .nav,
+    .hero,
+    .next-project,
+    footer {
+      padding-left: max(5.5%, calc((100% - 1320px) / 2));
+      padding-right: max(5.5%, calc((100% - 1320px) / 2));
+    }
+
+    .section {
+      margin-left: max(5.5%, calc((100% - 1320px) / 2));
+      margin-right: max(5.5%, calc((100% - 1320px) / 2));
+    }
+  }
+
+  /* TABLETS */
+
+  @media (max-width: 760px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .hero-image {
+      grid-row: 2;
+    }
+
+    .metadata {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .metadata > div:last-child {
+      grid-column: 1 / -1;
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .contribution-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .contribution,
+    .contribution + .contribution {
+      padding: 0 0 20px;
+      border-left: 0;
+      border-bottom: 1px solid #dedbd2;
+    }
+
+    .contribution:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .results-grid {
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+
+    .result,
+    .result + .result {
+      padding: 0;
+      border: 0;
+    }
+
+    .result-number {
+      margin-bottom: 8px;
+    }
+  }
+
+  /* PHONES */
+
+  @media (max-width: 480px) {
+    .nav {
+      min-height: 64px;
+      padding: 0 5%;
+    }
+
+    nav {
+      gap: 13px;
+    }
+
+    nav a {
+      font-size: 10px;
+    }
+
+    .hero {
+      padding: 22px 5%;
+    }
+
+    h1 {
+      font-size: 48px;
+    }
+
+    .back-link {
+      margin-bottom: 25px;
+    }
+
+    .section {
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 10px;
+      margin: 0 5%;
+      padding: 23px 0;
+    }
+
+    .metadata {
+      gap: 15px;
+    }
+
+    .metadata > div + div {
+      padding-left: 13px;
+    }
+
+    .metadata > div:first-child {
+      padding-right: 0;
+    }
+
+    .metadata > div > span:last-child {
+      font-size: 10px;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .section-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .section-heading .eyebrow {
+      margin: 0 0 16px;
+    }
+
+    .next-project {
+      padding: 30px 5% 38px;
+    }
+
+    footer {
+      flex-wrap: wrap;
+      padding: 20px 5%;
+    }
+  }
+
+  /* ACCESSIBILITY */
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+
+    .gallery-image img {
+      transition: none;
+    }
+  }
+</style>
