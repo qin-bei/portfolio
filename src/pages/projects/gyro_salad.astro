@@ -1,8 +1,10 @@
 
 ---
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
+
 const project = {
   timeline: "January – May",
-  role: "Mechanical Designer · CAD & Prototyping",
+  role: "Mechanical Design · CAD & Prototype",
   tools: "Fusion 360 · 3D Printing",
   course: "APS112 · Engineering Strategies & Practice II",
 };
@@ -36,22 +38,22 @@ const contributions = [
 
 const gallery = [
   {
-    src: "/images/gyro_salad/gyroscope_CAD.jpg",
+    src: `${base}images/gyro_salad/gyroscope_CAD.jpg`,
     alt: "Rendered CAD model of the proposed gyroscopic salad spinner",
     caption: "CAD RENDER",
   },
   {
-    src: "/images/gyro_salad/gyroscope_collapsed.jpg",
+    src: `${base}images/gyro_salad/gyroscope_collapsed.jpg`,
     alt: "Gyroscopic salad spinner prototype showing the gear mechanism",
     caption: "GEAR MECHANISM",
   },
   {
-    src: "/images/gyro_salad/gyroscope_front.jpg",
+    src: `${base}images/gyro_salad/gyroscope_front.jpg`,
     alt: "Front view of the physical gyroscopic salad spinner prototype",
     caption: "FRONT VIEW",
   },
   {
-    src: "/images/gyro_salad/gyroscope_three_forth.jpg",
+    src: `${base}images/gyro_salad/gyroscope_three_forth.jpg`,
     alt: "Three-quarter view of the gyroscopic salad spinner prototype",
     caption: "THREE-QUARTER VIEW",
   },
@@ -62,57 +64,44 @@ const gallery = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <meta
       name="description"
       content="Qin Bei's gyroscopic salad spinner project featuring mechanical design, CAD, prototyping, and product evaluation."
     />
-
     <meta name="theme-color" content="#f7f5ef" />
-
     <title>Gyroscopic Salad Spinner — Qin Bei</title>
   </head>
 
   <body>
-    <!-- NAVIGATION -->
-
     <header class="nav">
-      <a class="wordmark" href="/">Qin Bei<span>.</span></a>
+      <a class="wordmark" href={base}>Qin Bei<span>.</span></a>
 
       <nav aria-label="Main navigation">
-        <a href="/#work">Work</a>
-        <a href="/#about">About</a>
-        <a href="/#contact">Contact ↗</a>
+        <a href={`${base}#work`}>Projects</a>
+        <a href={`${base}#about`}>About</a>
+        <a href={`${base}#experience`}>Experience</a>
+        <a href={`${base}#contact`}>Contact ↗</a>
       </nav>
     </header>
 
     <main>
-      <!-- HERO -->
-
+      <!-- HERO: TEXT ONLY -->
       <section class="hero">
+        <a class="back-link" href={`${base}#work`}>← All projects</a>
+
         <div class="hero-copy">
-          <a class="back-link" href="/#work">← All projects</a>
+          <p class="eyebrow">PRODUCT DESIGN · MECHANICAL DESIGN</p>
 
-          <p class="eyebrow">
-            PRODUCT DEVELOPMENT · MECHANICAL DESIGN
-          </p>
-
-          <h1>Gyroscopic<br />Salad Spinner<span>.</span></h1>
+          <h1>
+            Gyroscopic Salad<br />
+            Spinner<span>.</span>
+          </h1>
 
           <p class="subtitle">
             Rethinking a familiar kitchen product through a three-axis
             rotational mechanism designed to improve water removal.
           </p>
         </div>
-
-        <figure class="hero-image">
-          <img
-            src="/images/gyro_salad/gyroscope_CAD.jpg"
-            alt="Rendered CAD model of the gyroscopic salad spinner"
-          />
-
-          <figcaption>CONCEPT DEVELOPMENT · CAD RENDER</figcaption>
-        </figure>
 
         <div class="metadata">
           <div>
@@ -133,7 +122,6 @@ const gallery = [
       </section>
 
       <!-- 01: PROJECT OVERVIEW -->
-
       <section class="overview section">
         <div class="section-index">01</div>
 
@@ -152,7 +140,6 @@ const gallery = [
       </section>
 
       <!-- 02: PROPOSED SOLUTION -->
-
       <section class="proposed-solution section">
         <div class="section-index">02</div>
 
@@ -160,91 +147,46 @@ const gallery = [
           <h2>Proposed solution</h2>
 
           <p class="section-intro">
-            To address this challenge, our team met with the client and
-            developed an engineering specification detailing the
-            client's needs and additional desired features. We also
-            conducted market analysis to evaluate existing products
-            and identify opportunities for improvement.
+            Based on client requirements and market research, we developed
+            a geared, three-axis salad spinner intended to improve water
+            removal and the overall user experience.
           </p>
 
-          <p class="section-intro">
-            Based on our research, we proposed a novel method to dry
-            greens that aimed to maximize efficiency while addressing
-            the shortcomings of traditional designs.
-          </p>
-
-          <p class="section-intro">
-            Our solution was a three-axis salad spinner driven by gears,
-            incorporating mechanical, electrical, and ergonomic
-            considerations to improve overall user experience and
-            effectiveness. Through client feedback and testing, our
-            final prototype was developed and presented.
-          </p>
-        </div>
-      </section>
-
-      <!-- 03: RESULTS -->
-
-      <section class="results section">
-        <div class="section-index">03</div>
-
-        <div class="section-content">
-          <h2>Results</h2>
-
-          <p class="section-intro">
-            The goal was to improve the efficiency of water expulsion
-            during the spinning process. The design utilizes gears and
-            multiple axes to accomplish this.
-          </p>
-
-          <div class="results-grid">
-            <article class="result">
-              <span class="result-number">25<span>%</span></span>
-
-              <p class="result-title">More water expelled</p>
-
-              <p class="result-detail">
-                Through five 45-second trials, the three-axis rotational
-                system expelled 25% more water than the conventional
-                single-axis spinner.
+          <div class="design-grid">
+            <article class="design-item">
+              <span class="design-symbol" aria-hidden="true">⌕</span>
+              <h3>Requirements &amp; research</h3>
+              <p>
+                Met with the client to define design requirements, then
+                reviewed existing products to identify opportunities to
+                improve on traditional salad spinners.
               </p>
             </article>
 
-            <article class="result">
-              <span class="result-number">11<span>s</span></span>
-
-              <p class="result-title">Time saved per cycle</p>
-
-              <p class="result-detail">
-                An estimated 11 seconds saved per cycle, assuming
-                a constant rate of water loss.
+            <article class="design-item">
+              <span class="design-symbol" aria-hidden="true">↻</span>
+              <h3>Three-axis mechanism</h3>
+              <p>
+                Proposed a gear-driven, three-axis rotation system, considering
+                mechanical, electrical, and ergonomic needs in the design.
               </p>
             </article>
 
-            <article class="result">
-              <span class="result-number">59<span>%</span></span>
-
-              <p class="result-title">Rated five stars</p>
-
-              <p class="result-detail">
-                In a campus-wide usability survey, approximately 59%
-                of respondents rated the proposed design five stars
-                for ease of use.
+            <article class="design-item">
+              <span class="design-symbol" aria-hidden="true">✳</span>
+              <h3>Prototype &amp; evaluation</h3>
+              <p>
+                Developed and presented the final prototype using client
+                feedback and testing to evaluate the proposed solution.
               </p>
             </article>
           </div>
-
-          <p class="results-note">
-            Performance trials and user feedback helped evaluate the
-            proposed design and identify opportunities for improvement.
-          </p>
         </div>
       </section>
 
-      <!-- 04: MY CONTRIBUTIONS -->
-
+      <!-- 03: MY CONTRIBUTIONS -->
       <section class="contributions section">
-        <div class="section-index">04</div>
+        <div class="section-index">03</div>
 
         <div class="section-content">
           <h2>My contributions</h2>
@@ -260,12 +202,8 @@ const gallery = [
                 </div>
 
                 <div class="contribution-copy">
-                  <p class="contribution-category">
-                    {item.category}
-                  </p>
-
+                  <p class="contribution-category">{item.category}</p>
                   <h3>{item.title}</h3>
-
                   <p class="contribution-description">
                     {item.description}
                   </p>
@@ -276,18 +214,67 @@ const gallery = [
         </div>
       </section>
 
-      <!-- 05: GALLERY -->
+      <!-- 04: RESULTS -->
+      <section class="results section">
+        <div class="section-index">04</div>
 
+        <div class="section-content">
+          <h2>Results</h2>
+
+          <p class="section-intro">
+            The goal was to improve the efficiency of water expulsion
+            during the spinning process. The design utilizes gears and
+            multiple axes to accomplish this.
+          </p>
+
+          <div class="results-grid">
+            <article class="result">
+              <span class="result-number">25<span>%</span></span>
+              <p class="result-title">More water expelled</p>
+              <p class="result-detail">
+                Through five 45-second trials, the three-axis rotational
+                system expelled 25% more water than the conventional
+                single-axis spinner.
+              </p>
+            </article>
+
+            <article class="result">
+              <span class="result-number">11<span>s</span></span>
+              <p class="result-title">Time saved per cycle</p>
+              <p class="result-detail">
+                An estimated 11 seconds saved per cycle, assuming
+                a constant rate of water loss.
+              </p>
+            </article>
+
+            <article class="result">
+              <span class="result-number">59<span>%</span></span>
+              <p class="result-title">Rated five stars</p>
+              <p class="result-detail">
+                In a campus-wide usability survey, approximately 59%
+                of respondents rated the proposed design five stars
+                for ease of use.
+              </p>
+            </article>
+          </div>
+
+          <p class="results-note">
+            Performance trials and user feedback helped evaluate the
+            proposed design and identify opportunities for improvement.
+          </p>
+        </div>
+      </section>
+
+      <!-- 05: GALLERY -->
       <section class="gallery-section section">
         <div class="section-index">05</div>
 
         <div class="section-content">
           <div class="section-heading">
             <div>
+              <p class="eyebrow">SELECTED PROJECT IMAGES</p>
               <h2>Prototyping</h2>
-
             </div>
-
             <span class="eyebrow">DESIGN · BUILD · TEST</span>
           </div>
 
@@ -304,7 +291,6 @@ const gallery = [
 
                 <figcaption>
                   <span>{image.caption}</span>
-
                   <span class="gallery-index">
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -316,26 +302,17 @@ const gallery = [
       </section>
 
       <!-- NEXT PROJECT -->
-
       <section class="next-project">
         <p class="eyebrow">MORE PROJECTS</p>
-
-        <h2>
-          More things I've been building<span>.</span>
-        </h2>
-
-        <a href="/#work">Back to selected work ↗</a>
+        <h2>More things I've been building<span>.</span></h2>
+        <a href={`${base}#work`}>Back to selected projects ↗</a>
       </section>
     </main>
 
-    <!-- FOOTER -->
-
     <footer>
-      <a class="wordmark" href="/">Qin Bei<span>.</span></a>
-
-      <span>MECHANICAL ENGINEERING · PRODUCT DEVELOPMENT</span>
-
-      <a href="/#contact">GET IN TOUCH ↗</a>
+      <a class="wordmark" href={base}>Qin Bei<span>.</span></a>
+      <span>MECHANICAL ENGINEERING</span>
+      <a href={`${base}#contact`}>GET IN TOUCH ↗</a>
     </footer>
   </body>
 </html>
@@ -364,7 +341,6 @@ const gallery = [
   }
 
   /* NAVIGATION */
-
   .nav {
     min-height: 72px;
     padding: 0 5.5%;
@@ -375,7 +351,7 @@ const gallery = [
   }
 
   .wordmark {
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 700;
     letter-spacing: -0.7px;
   }
@@ -403,7 +379,6 @@ const gallery = [
   }
 
   /* TYPOGRAPHY */
-
   h1,
   h2,
   h3 {
@@ -429,74 +404,53 @@ const gallery = [
   }
 
   /* HERO */
-
   .hero {
-    display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
-    column-gap: 38px;
-    align-items: center;
-    padding: 28px 5.5% 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 5.5% 30px;
   }
 
   .back-link {
     display: inline-block;
-    margin-bottom: 32px;
+    margin-bottom: 38px;
     color: #686a60;
     font-size: 12px;
   }
 
+  .hero-copy {
+    max-width: 920px;
+  }
+
   .hero-copy > .eyebrow {
-    margin-bottom: 16px;
+    margin: 0 0 18px;
   }
 
   h1 {
+    max-width: 900px;
     margin: 0;
-    font-size: clamp(44px, 5.5vw, 76px);
-    line-height: 0.98;
+    font-size: clamp(48px, 7vw, 94px);
+    line-height: 0.99;
     letter-spacing: -0.075em;
     font-weight: 500;
   }
 
   .subtitle {
-    max-width: 420px;
-    margin: 20px 0 0;
+    max-width: 570px;
+    margin: 22px 0 0;
     color: #686961;
     font-size: 15px;
-    line-height: 1.75;
-  }
-
-  figure {
-    min-width: 0;
-    margin: 0;
-  }
-
-  .hero-image {
-    background: #e7e8e5;
-  }
-
-  .hero-image img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1.35 / 1;
-    object-fit: contain;
-  }
-
-  figcaption {
-    padding: 10px 0;
-    color: #72746b;
-    font-size: 9px;
-    letter-spacing: 1px;
+    line-height: 1.8;
   }
 
   /* PROJECT METADATA */
-
   .metadata {
-    grid-column: 1 / -1;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1.3fr 1fr;
     gap: 24px;
-    margin-top: 22px;
-    padding-top: 18px;
+    margin-top: 34px;
+    padding: 20px 0 0;
     border-top: 1px solid #dedbd2;
   }
 
@@ -518,7 +472,6 @@ const gallery = [
   }
 
   /* SHARED SECTIONS */
-
   .section {
     display: grid;
     grid-template-columns: 28px minmax(0, 1fr);
@@ -540,7 +493,6 @@ const gallery = [
   }
 
   /* PROJECT OVERVIEW */
-
   .overview-copy p {
     max-width: 850px;
     margin: 0;
@@ -550,7 +502,6 @@ const gallery = [
   }
 
   /* PROPOSED SOLUTION */
-
   .section-intro {
     max-width: 850px;
     margin: -4px 0 24px;
@@ -559,16 +510,48 @@ const gallery = [
     line-height: 1.8;
   }
 
-  .proposed-solution .section-intro + .section-intro {
-    margin-top: 14px;
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 26px;
   }
 
-  .proposed-solution .section-intro:last-child {
-    margin-bottom: 0;
+  .design-item {
+    min-width: 0;
+    padding: 20px;
+    background: #eee9dc;
+  }
+
+  .design-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: #e1e7d7;
+    color: #476448;
+    font-size: 18px;
+  }
+
+  .design-item h3 {
+    margin: 0 0 9px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.4px;
+  }
+
+  .design-item p {
+    margin: 0;
+    color: #65675e;
+    font-size: 12px;
+    line-height: 1.8;
   }
 
   /* RESULTS */
-
   .results-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -621,7 +604,6 @@ const gallery = [
   }
 
   /* MY CONTRIBUTIONS */
-
   .contribution-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -689,20 +671,16 @@ const gallery = [
   }
 
   /* GALLERY */
-
   .section-heading {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: 15px;
+    margin-bottom: 4px;
   }
 
   .section-heading .eyebrow {
     white-space: nowrap;
-  }
-
-  .section-heading .section-intro {
-    margin-top: -8px;
   }
 
   .gallery-grid {
@@ -711,9 +689,14 @@ const gallery = [
     gap: 24px 16px;
   }
 
+  .gallery-item {
+    min-width: 0;
+    margin: 0;
+  }
+
   .gallery-image {
     overflow: hidden;
-    background: #e7e8e5;
+    background: transparent;
   }
 
   .gallery-image img {
@@ -721,6 +704,7 @@ const gallery = [
     width: 100%;
     aspect-ratio: 1.35 / 1;
     object-fit: contain;
+    background: transparent;
     transition: transform 250ms ease;
   }
 
@@ -732,6 +716,10 @@ const gallery = [
     display: flex;
     justify-content: space-between;
     gap: 12px;
+    padding: 10px 0;
+    color: #72746b;
+    font-size: 9px;
+    letter-spacing: 1px;
     border-bottom: 1px solid #dedbd2;
   }
 
@@ -739,18 +727,7 @@ const gallery = [
     color: #648365;
   }
 
-  /* PROJECT DEVELOPMENT */
-
-  .approach .section-content {
-    max-width: 800px;
-  }
-
-  .approach .section-intro {
-    margin: 0;
-  }
-
   /* NEXT PROJECT */
-
   .next-project {
     margin-top: 8px;
     padding: 36px 5.5% 45px;
@@ -776,7 +753,6 @@ const gallery = [
   }
 
   /* FOOTER */
-
   footer {
     display: flex;
     align-items: center;
@@ -789,7 +765,6 @@ const gallery = [
   }
 
   /* LARGE SCREENS */
-
   @media (min-width: 1500px) {
     .nav,
     .hero,
@@ -806,15 +781,9 @@ const gallery = [
   }
 
   /* TABLETS */
-
   @media (max-width: 760px) {
-    .hero {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .hero-image {
-      grid-row: 2;
+    h1 {
+      font-size: clamp(46px, 9vw, 68px);
     }
 
     .metadata {
@@ -849,6 +818,11 @@ const gallery = [
       gap: 26px;
     }
 
+    .design-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
     .result,
     .result + .result {
       padding: 0;
@@ -861,7 +835,6 @@ const gallery = [
   }
 
   /* PHONES */
-
   @media (max-width: 480px) {
     .nav {
       min-height: 64px;
@@ -877,15 +850,20 @@ const gallery = [
     }
 
     .hero {
-      padding: 22px 5%;
-    }
-
-    h1 {
-      font-size: 48px;
+      padding: 22px 5% 25px;
     }
 
     .back-link {
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 11vw, 52px);
+      line-height: 1.02;
+    }
+
+    .subtitle {
+      font-size: 14px;
     }
 
     .section {
@@ -937,7 +915,6 @@ const gallery = [
   }
 
   /* ACCESSIBILITY */
-
   @media (prefers-reduced-motion: reduce) {
     :global(html) {
       scroll-behavior: auto;

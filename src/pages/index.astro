@@ -3,18 +3,58 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const categories = [
-  "All work",
-  "Product development",
+  "All projects",
+  "Product design",
   "Mechanical design",
   "Robotics",
   "Vehicle engineering",
+  "Student design team",
+];
+
+const experience = [
+  {
+    role: "Mechanical Engineering Intern",
+    organization: "ecobee",
+    type: "Internship",
+    dates: "May 2026 – Present",
+    location: "Toronto, Ontario, Canada",
+    description: "Contributing to new and current products.",
+    current: true,
+  },
+  {
+    role: "Undergraduate Research Assistant",
+    organization: "Electrical & Computer Engineering Department @ the University of Toronto",
+    type: "Internship",
+    dates: "May 2024 – Aug 2024",
+    location: "Toronto, Ontario, Canada",
+    description:
+      "Worked on a human-sized omnidirectional robot in the Energy Systems Lab under Professor Hamid Timorabadi.",
+  },
+  {
+    role: "Junior Intelligent Integrated Systems Designer",
+    organization: "Smith + Andersen",
+    type: "Contract · Part-time",
+    dates: "May 2023 – Apr 2024",
+    location: "Toronto, Ontario, Canada",
+    description:
+      "Contributed to the Downtown Toronto CAMH Hospital 1D Redevelopment Project and internal project tools.",
+  },
+  {
+    role: "Electrical Engineering Intern",
+    organization: "IBI Group - Arcadis",
+    type: "Internship",
+    dates: "May 2022 – Aug 2022",
+    location: "Mississauga, Ontario, Canada",
+    description:
+      "Supported the Vancouver Broadway Subway Project and the City of Toronto Accessibility Upgrade Project.",
+  },
 ];
 
 const projects = [
   {
     number: "01",
-    title: "Baja SAE Chassis",
-    category: "Vehicle engineering",
+    title: "U of T Baja Racing",
+    categories: ["Vehicle engineering", "Mechanical design", "Student design team"],
     description: "Tubular chassis CAD design and structural packaging.",
     image: `${base}/images/baja/baja_chassis_render.jpg`,
     color: "sage",
@@ -23,50 +63,51 @@ const projects = [
   },
   {
     number: "02",
-    title: "Omni-Directional Robot",
-    category: "Robotics",
+    title: "Omni-directional Robot",
+    categories: ["Robotics", "Mechanical design"],
     description:
       "Mechanical assembly, fabricated chassis, and 3D-printed components.",
     image: `${base}/images/omni_robot/omni_robot_physical_assy.jpg`,
     color: "blue",
     visual: "DESIGN · FABRICATION",
-    href: "#contact",
+    href: `${base}/projects/omni_robot`,
   },
   {
     number: "03",
-    title: "Line-Tracking Robot",
-    category: "Robotics",
-    description: "Robot development through iterative mechanical design.",
+    title: "Line-Tracking Robo-Duck",
+    categories: ["Robotics", "Mechanical design"],
+    description:
+      "A 3D-printed autonomous robot developed through rapid prototyping and testing.",
     image: `${base}/images/line_tracking_duck/line_tracking_robot_mvp.jpg`,
     color: "yellow",
     visual: "PROTOTYPING · ITERATION",
-    href: "#contact",
+    href: `${base}/projects/line_tracking_robot/`,
   },
   {
     number: "04",
     title: "Multi-Mechanism CNC Mill",
-    category: "Mechanical design",
+    categories: ["Product design", "Mechanical design"],
     description:
       "Mechanical subsystems including the bed, spindle, and axis assemblies.",
     image: `${base}/images/multi-mech_CNC_mill/multi_mech_CNC_mill.png`,
     color: "lavender",
     visual: "CAD · MECHANICAL SYSTEMS",
-    href: "#contact",
+    href: `${base}/projects/cnc-mill/`,
   },
   {
     number: "05",
     title: "UTAT UAS Mechanical Systems",
-    category: "Mechanical design",
+    categories: ["Mechanical design", "Student design team"],
     description: "CAD development of a baffle system and winch mechanism.",
     image: `${base}/images/UTAT_UAS/UTAT_UAS_baffle_system_CAD.png`,
     color: "mint",
     visual: "CAD · MECHANISM DESIGN",
-    href: "#contact",
+    href: `${base}/projects/utat-uas/`,
   },
   {
     number: "06",
     title: "Gyroscopic Salad Spinner",
-    category: "Mechanical design",
+    categories: ["Product design", "Mechanical design"],
     description:
       "CAD modelling and physical prototyping of a geared, nested-ring mechanism.",
     image: `${base}/images/gyro_salad/gyroscope_front.jpg`,
@@ -96,8 +137,9 @@ const projects = [
       </a>
 
       <nav aria-label="Main navigation">
-        <a href="#work">Work</a>
+        <a href="#work">Projects</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact ↗</a>
       </nav>
     </header>
@@ -105,31 +147,28 @@ const projects = [
     <main>
       <section class="intro" id="home">
         <div class="intro-copy">
-          <p class="eyebrow">
-            MECHANICAL ENGINEERING · PRODUCT DEVELOPMENT
-          </p>
 
           <h1>
             I like making<br />
-            things for people<span class="period">.</span>
+            things <span class="intro-accent">for people</span><span class="period">.</span>
           </h1>
 
           <p class="intro-description">
-            Mechanical design, product development, and robotics —
-            from first ideas to things you can hold.
+            Mechanical engineering, product development, integrated systems and fun stuff
+
           </p>
         </div>
 
         <a class="explore-link" href="#work">
-          EXPLORE MY WORK <span>↓</span>
+          EXPLORE MY PROJECTS <span>↓</span>
         </a>
       </section>
 
       <section class="work" id="work">
         <div class="work-heading">
           <div>
-            <p class="eyebrow">A SELECTION OF THINGS I'VE WORKED ON</p>
-            <h2>Selected work<span class="period">.</span></h2>
+            <p class="eyebrow">A SELECTION OF PROJECTS I'VE WORKED ON</p>
+            <h2>Selected projects<span class="period">.</span></h2>
           </div>
 
           <p class="work-count">
@@ -152,7 +191,7 @@ const projects = [
 
         <div class="project-grid" id="project-grid">
           {projects.map((project) => (
-            <article class="project-card" data-category={project.category}>
+            <article class="project-card" data-categories={project.categories.join("|")}>
               <a
                 class="project-link"
                 href={project.href}
@@ -172,7 +211,11 @@ const projects = [
                 </div>
 
                 <div class="project-info">
-                  <p class="project-category">{project.category}</p>
+                  <div class="project-categories" aria-label="Project categories">
+                    {project.categories.map((category) => (
+                      <span class="project-category">{category}</span>
+                    ))}
+                  </div>
                   <h3>{project.title}</h3>
                   <p class="project-description">
                     {project.description}
@@ -183,7 +226,6 @@ const projects = [
           ))}
         </div>
 
-        <p class="gallery-note">Detailed project case studies coming soon.</p>
       </section>
 
       <section class="about" id="about">
@@ -191,38 +233,88 @@ const projects = [
 
         <div class="about-grid">
           <h2>
-            Curious by nature.<br />
+            Creative by nature.<br />
             <span>Practical by design.</span>
           </h2>
 
+          <figure class="about-photo">
+            <img
+              src={`${base}/images/about/me%20welding.jpg`}
+              alt="Qin Bei welding a metal frame in the workshop"
+              loading="lazy"
+            />
+            <figcaption>IN THE WORKSHOP · WELDING</figcaption>
+          </figure>
+
           <div class="about-copy">
             <p>
-              I'm a mechanical engineering student interested in how thoughtful
-              design can make everyday products and complex systems work better
-              for people.
+              My name is Qin Bei. I'm a mechanical engineering student at the 
+              Univeristy of Toronto. I'm constantly inspired by people and 
+              by how thoughtful design can make everyday products more useful
+              and complex systems work better. I like the idea of people 
+              creating things for people—the cycle of curiosity, creativity, 
+              and problem solving that keeps the world moving forward. 
+              It's a cycle I hope to contribute to as an engineer.
+              
+ 
             </p>
 
             <p>
               I enjoy turning ideas into reality through CAD, prototyping,
-              fabrication, testing, and iterative problem-solving.
+              fabrication, integration, testing, and iterative problem-solving.
+
+              Thank you for taking the time to look at my portfolio!
             </p>
           </div>
         </div>
+      </section>
+
+      <section class="experience" id="experience">
+        <div class="experience-heading">
+          <div>
+            <p class="eyebrow">WHERE I'VE CONTRIBUTED</p>
+            <h2>Experience<span class="period">.</span></h2>
+          </div>
+          <p class="experience-count">{experience.length} ROLES</p>
+        </div>
+
+        <ol class="experience-list">
+          {experience.map((item) => (
+            <li class="experience-item">
+              <div class="experience-date">
+                <span>{item.dates}</span>
+              </div>
+              <article class="experience-card">
+                <div class="experience-title-row">
+                  <div>
+                    <h3>{item.role}</h3>
+                    <p class="experience-organization">
+                      {item.organization} <span>· {item.type}</span>
+                    </p>
+                  </div>
+                  {item.current && <span class="current-badge">CURRENT</span>}
+                </div>
+                <p class="experience-location">{item.location}</p>
+                <p class="experience-description">{item.description}</p>
+              </article>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section class="contact" id="contact">
         <p class="eyebrow">LET'S CONNECT</p>
 
         <h2>
-          Have something<br />
-          interesting in mind<span class="period">?</span>
+          Cool things?<br />
+          Count me in<span class="period">!</span>
         </h2>
 
         <p>
-          Always happy to talk about engineering, hardware, and product design.
+          Let's connect!
         </p>
 
-        <a class="contact-link" href="mailto:YOUR_EMAIL@example.com">
+        <a class="contact-link" href="mailto:qin.bei@mail.utoronto.ca">
           Get in touch ↗
         </a>
       </section>
@@ -243,7 +335,7 @@ const projects = [
 
   filters.forEach((filter) => {
     filter.addEventListener("click", () => {
-      const selected = filter.getAttribute("data-filter") || "All work";
+      const selected = filter.getAttribute("data-filter") || "All projects";
       let visibleCount = 0;
 
       filters.forEach((button) => {
@@ -253,9 +345,9 @@ const projects = [
       });
 
       cards.forEach((card) => {
+        const cardCategories = (card.getAttribute("data-categories") || "").split("|");
         const visible =
-          selected === "All work" ||
-          card.getAttribute("data-category") === selected;
+          selected === "All projects" || cardCategories.includes(selected);
 
         card.hidden = !visible;
 
@@ -296,17 +388,17 @@ const projects = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #e4e1d7;
   }
 
   .wordmark {
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 700;
     letter-spacing: -0.7px;
   }
 
   .wordmark span,
-  .period {
+  .period,
+  .intro-accent {
     color: #648365;
   }
 
@@ -331,6 +423,7 @@ const projects = [
     align-items: end;
     justify-content: space-between;
     gap: 32px;
+    background: #f1e5c7;
   }
 
   .eyebrow {
@@ -379,7 +472,6 @@ const projects = [
 
   .work {
     padding: 36px 6% 80px;
-    border-top: 1px solid #e4e1d7;
   }
 
   .work-heading {
@@ -548,21 +640,24 @@ const projects = [
     padding-top: 15px;
   }
 
+  .project-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 7px;
+  }
+
   .project-category {
-    margin: 0 0 7px;
+    display: inline-block;
+    margin: 0;
+    padding: 4px 7px;
+    border: 1px solid #dfdcd1;
+    border-radius: 999px;
     color: #6b806b;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
     letter-spacing: 0.8px;
     text-transform: uppercase;
-  }
-
-  .project-card:nth-child(3n + 2) .project-category {
-    color: #557da9;
-  }
-
-  .project-card:nth-child(3n) .project-category {
-    color: #a47b29;
   }
 
   .project-info h3 {
@@ -597,8 +692,9 @@ const projects = [
 
   .about-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.8fr;
-    gap: 50px;
+    grid-template-columns: 1.1fr 0.8fr 0.65fr;
+    align-items: start;
+    gap: 36px;
   }
 
   .about-grid h2 {
@@ -614,6 +710,157 @@ const projects = [
     color: #55594f;
     font-size: 13px;
     line-height: 1.9;
+  }
+
+  .about-photo {
+    margin: 0;
+  }
+
+  .about-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about-photo figcaption {
+    padding-top: 10px;
+    color: #687064;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .experience {
+    padding: 70px 6%;
+  }
+
+  .experience-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .experience-heading .eyebrow {
+    margin: 0 0 9px;
+  }
+
+  .experience-heading h2 {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+  }
+
+  .experience-count {
+    margin: 0 0 5px;
+    color: #77786f;
+    font-size: 10px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .experience-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0;
+    padding: 25px 0 0;
+    list-style: none;
+  }
+
+  .experience-list::before {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: #dcd9cf;
+    content: "";
+  }
+
+  .experience-item {
+    position: relative;
+    min-width: 0;
+  }
+
+  .experience-date {
+    position: relative;
+    margin-bottom: 14px;
+    color: #73756b;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .experience-date::after {
+    position: absolute;
+    top: -22px;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border: 2px solid #f7f5ef;
+    border-radius: 50%;
+    background: #648365;
+    content: "";
+  }
+
+  .experience-card {
+    min-width: 0;
+  }
+
+  .experience-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .experience-card h3 {
+    margin: 0 0 4px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+  }
+
+  .experience-organization,
+  .experience-location,
+  .experience-description {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .experience-organization {
+    color: #363830;
+  }
+
+  .experience-organization span,
+  .experience-location {
+    color: #77786f;
+  }
+
+  .experience-location {
+    margin-top: 3px;
+  }
+
+  .experience-description {
+    margin-top: 10px;
+    color: #5e6057;
+  }
+
+  .current-badge {
+    flex-shrink: 0;
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: #e4eee1;
+    color: #476448;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
   }
 
   .contact {
@@ -665,10 +912,47 @@ const projects = [
     .intro,
     .work,
     .about,
+    .experience,
     .contact,
     footer {
       padding-left: max(6%, calc((100% - 1320px) / 2));
       padding-right: max(6%, calc((100% - 1320px) / 2));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .experience-list {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding-top: 0;
+    }
+
+    .experience-list::before {
+      top: 8px;
+      right: auto;
+      bottom: 8px;
+      left: 4px;
+      width: 1px;
+      height: auto;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 20px 0 20px 24px;
+      border-top: 1px solid #e4e1d7;
+    }
+
+    .experience-date {
+      margin-bottom: 0;
+      text-align: left;
+    }
+
+    .experience-date::after {
+      top: 5px;
+      left: -24px;
+      right: auto;
     }
   }
 
@@ -695,8 +979,29 @@ const projects = [
     }
 
     .about-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 0.7fr;
       gap: 24px;
+    }
+
+    .about-grid h2 {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .about-photo {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+
+    .about-copy {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .experience,
+    .contact {
+      padding-top: 56px;
+      padding-bottom: 56px;
     }
   }
 
@@ -707,7 +1012,7 @@ const projects = [
     }
 
     .wordmark {
-      font-size: 15px;
+      font-size: 17px;
     }
 
     nav {
@@ -721,6 +1026,7 @@ const projects = [
     .intro,
     .work,
     .about,
+    .experience,
     .contact {
       padding-left: 5%;
       padding-right: 5%;
@@ -738,6 +1044,38 @@ const projects = [
     .project-grid {
       grid-template-columns: 1fr;
       gap: 28px;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-grid h2,
+    .about-photo,
+    .about-copy {
+      grid-column: auto;
+      grid-row: auto;
+    }
+
+    .about-photo {
+      width: min(100%, 340px);
+    }
+
+    .experience,
+    .contact {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .experience-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .experience-title-row {
+      flex-direction: column;
+      gap: 8px;
     }
 
     .project-image {

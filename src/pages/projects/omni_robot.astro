@@ -1,0 +1,657 @@
+
+---
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
+
+const gallery = [
+  {
+    src: `${base}images/omni_robot/omni_robot_assy_CAD.png`,
+    alt: "CAD assembly of the omnidirectional robot chassis",
+    caption: "CHASSIS ASSEMBLY · CAD",
+  },
+  {
+    src: `${base}images/omni_robot/omni_robot_top_CAD.png`,
+    alt: "Top view of the robot torso CAD design",
+    caption: "TORSO · CAD",
+  },
+  {
+    src: `${base}images/omni_robot/omni_robot_physical_assy.jpg`,
+    alt: "Assembled omnidirectional robot in the lab",
+    caption: "PHYSICAL ASSEMBLY",
+    featured: true,
+  },
+  {
+    src: `${base}images/omni_robot/omni_robot_torso_CAD.png`,
+    alt: "CAD model of the robot torso",
+    caption: "TORSO DESIGN",
+  },
+  {
+    src: `${base}images/omni_robot/omni_robot_3D_print.png`,
+    alt: "Three-dimensional printed robot components",
+    caption: "3D-PRINTED COMPONENTS",
+  },
+  {
+    src: `${base}images/omni_robot/omni_robot_welded_base.png`,
+    alt: "Welded metal base plate for the robot",
+    caption: "WELDED BASE PLATE",
+  },
+  {
+    src: `${base}images/omni_robot/omni_robot_torso_3D_printed.png`,
+    alt: "Three-dimensional printed robot torso components",
+    caption: "PRINTED TORSO",
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Qin Bei's omnidirectional robot research project at the University of Toronto, featuring mechanical design, CAD, and fabrication."
+    />
+    <meta name="theme-color" content="#f7f5ef" />
+    <title>Omni-directional Robot — Qin Bei</title>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+
+    <header class="nav">
+      <a class="wordmark" href={base}>Qin Bei<span>.</span></a>
+
+      <nav aria-label="Main navigation">
+        <a href={`${base}#work`}>Projects</a>
+        <a href={`${base}#about`}>About</a>
+        <a href={`${base}#experience`}>Experience</a>
+        <a href={`${base}#contact`}>Contact ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- PROJECT HEADER -->
+
+      <section class="project-header">
+        <a class="back-link" href={`${base}#work`}>← All projects</a>
+
+        <p class="eyebrow">ROBOTICS · MECHANICAL DESIGN</p>
+
+        <h1>Omni-directional Robot<span>.</span></h1>
+
+        <div class="project-meta">
+          <div>
+            <span class="meta-label">TIMELINE</span>
+            <p>May – August 2024</p>
+          </div>
+
+          <div>
+            <span class="meta-label">ROLE</span>
+            <p>Mechanical Design · CAD &amp; Fabrication</p>
+          </div>
+
+          <div>
+            <span class="meta-label">TOOLS</span>
+            <p>Fusion 360 · 3D Printing · MIG Welding · Metal Machining</p>
+          </div>
+          <div>
+            <span class="meta-label">GROUP</span>
+            <p>Samanta D.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT OVERVIEW -->
+
+      <section class="project-overview section">
+        <div class="section-index">01</div>
+
+        <div class="section-content overview-copy">
+          <h2>Project overview</h2>
+          <p>
+            During my summer Undergraduate Research Assistant position
+            supervised by Professor Hamid Timorabadi at the University
+            of Toronto, I worked with an upper-year student to build an
+            omnidirectional robot. I led the mechanical design and was
+            responsible for the CAD design and fabrication of the
+            robot's body taking careful consideration of the electronics.
+          </p>
+
+          <p>
+            The torso to hold the robot arms and tablet interface was modelled in 
+            Fusion 360 following DFMA principles to ensure the design was 
+            functional and manufacturable within the available budget, time, 
+            material, printer bed size, and other constraints. The limited 3D
+            printer build volume required a modular design that could be
+            printed, assembled, and disassembled for future changes. 
+            We used scrap metal for the base plates and common tools to bend, cut 
+            and MIG weld the final assembly.
+          </p>
+
+          <p>
+            I also regularly presented my progress to the team and
+            supervisor, communicating design challenges and proposed
+            solutions.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROJECT GALLERY -->
+
+      <section class="gallery-section section" id="gallery">
+        <div class="section-index">02</div>
+
+        <div class="section-content">
+          <div class="gallery-heading">
+            <div>
+              <p class="eyebrow">SELECTED PROJECT IMAGES</p>
+              <h2>Design &amp; fabrication<span>.</span></h2>
+            </div>
+            <span class="image-count">{gallery.length} IMAGES</span>
+          </div>
+
+          <div class="gallery-grid">
+            {gallery.map((item, index) => (
+              <figure
+                class:list={[
+                  "gallery-item",
+                  item.featured && "featured",
+                ]}
+              >
+                <a
+                  class="gallery-image"
+                  href={item.src}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open full-size image: ${item.alt}`}
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                  />
+
+                  <span class="image-open" aria-hidden="true">↗</span>
+                </a>
+
+                <figcaption>
+                  <span>{item.caption}</span>
+                  <span class="image-index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- BACK TO PORTFOLIO -->
+
+      <section class="next-project">
+        <p class="eyebrow">MORE PROJECTS</p>
+        <h2>More things I've been building<span>.</span></h2>
+        <a href={`${base}#work`}>Back to selected projects ↗</a>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <a class="wordmark" href={base}>Qin Bei<span>.</span></a>
+      <span>MECHANICAL ENGINEERING</span>
+      <a href={`${base}#contact`}>GET IN TOUCH ↗</a>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #f7f5ef;
+    color: #252620;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* NAVIGATION */
+
+  .nav {
+    min-height: 72px;
+    padding: 0 5.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dedbd2;
+  }
+
+  .wordmark {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+  }
+
+  .wordmark span,
+  h1 span,
+  h2 span {
+    color: #648365;
+  }
+
+  nav {
+    display: flex;
+    gap: clamp(18px, 3vw, 42px);
+  }
+
+  nav a {
+    font-size: 12px;
+    color: #55574f;
+  }
+
+  nav a:hover,
+  .back-link:hover {
+    color: #648365;
+  }
+
+  /* TYPOGRAPHY */
+
+  .eyebrow,
+  .meta-label {
+    color: #72766b;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    line-height: 1.7;
+  }
+
+  h1,
+  h2 {
+    font-weight: 500;
+    letter-spacing: -0.065em;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(38px, 5.3vw, 70px);
+    line-height: 1.05;
+  }
+
+  h2 {
+    margin: 0 0 20px;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.15;
+  }
+
+  /* PROJECT HEADER */
+
+  .project-header {
+    padding: 30px 5.5% 32px;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    font-size: 12px;
+    color: #686a60;
+  }
+
+  .project-header > .eyebrow {
+    margin-bottom: 14px;
+  }
+
+  /* METADATA */
+
+  .project-meta {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1.5fr 0.8fr;
+    gap: 24px;
+    margin-top: 28px;
+    padding: 18px 0;
+    border-top: 1px solid #dedbd2;
+    border-bottom: 1px solid #dedbd2;
+  }
+
+  .project-meta > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+  }
+
+  .project-meta > div + div {
+    padding-left: 24px;
+    border-left: 1px solid #d7d4cb;
+  }
+
+  .project-meta p {
+    margin: 0;
+    color: #252620;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  /* PROJECT OVERVIEW */
+
+  .section {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    column-gap: 14px;
+    margin: 0 5.5%;
+    padding: 30px 0;
+    border-top: 1px solid #dedbd2;
+  }
+
+  .section-index {
+    padding-top: 3px;
+    color: #648365;
+    font-size: 11px;
+  }
+
+  .section-content {
+    min-width: 0;
+  }
+
+  .project-overview {
+    padding: 30px 0;
+  }
+
+  .overview-copy {
+    max-width: 900px;
+  }
+
+  .overview-copy p {
+    margin: 0 0 17px;
+    color: #65675e;
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .overview-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* GALLERY */
+
+  .gallery-section {
+    padding: 30px 0 48px;
+  }
+
+  .gallery-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .gallery-heading .eyebrow {
+    margin: 0 0 8px;
+  }
+
+  .gallery-heading h2 {
+    margin: 0;
+  }
+
+  .image-count {
+    padding-bottom: 5px;
+    color: #72766b;
+    font-size: 10px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px 18px;
+  }
+
+  .gallery-item {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .gallery-item.featured {
+    grid-column: span 2;
+  }
+
+  .gallery-image {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .gallery-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+    object-fit: contain;
+    transition: transform 250ms ease;
+  }
+
+  .featured .gallery-image img {
+    aspect-ratio: 1.55 / 1;
+  }
+
+  .gallery-image:hover img {
+    transform: scale(1.025);
+  }
+
+  .image-open {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f7f5ef;
+    color: #252620;
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .gallery-image:hover .image-open,
+  .gallery-image:focus-visible .image-open {
+    opacity: 1;
+  }
+
+  .gallery-item figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 10px;
+    color: #65675e;
+    font-size: 10px;
+    letter-spacing: 0.7px;
+    line-height: 1.6;
+  }
+
+  .image-index {
+    color: #648365;
+  }
+
+  /* BACK TO PORTFOLIO */
+
+  .next-project {
+    padding: 35px 5.5% 42px;
+    background: #eee9dc;
+  }
+
+  .next-project .eyebrow {
+    margin: 0 0 12px;
+  }
+
+  .next-project h2 {
+    margin-bottom: 20px;
+    font-size: clamp(29px, 4vw, 44px);
+  }
+
+  .next-project > a {
+    display: inline-block;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #999b8d;
+    font-size: 12px;
+  }
+
+  /* FOOTER */
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 24px 5.5%;
+    color: #77786f;
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+
+  /* LARGE SCREENS */
+
+  @media (min-width: 1500px) {
+    .nav,
+    .project-header,
+    .next-project,
+    footer {
+      padding-left: max(5.5%, calc((100% - 1320px) / 2));
+      padding-right: max(5.5%, calc((100% - 1320px) / 2));
+    }
+
+    .section {
+      margin-left: max(5.5%, calc((100% - 1320px) / 2));
+      margin-right: max(5.5%, calc((100% - 1320px) / 2));
+    }
+  }
+
+  /* TABLETS */
+
+  @media (max-width: 760px) {
+    .project-meta {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-meta > div + div {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .project-meta > div:nth-child(even) {
+      padding-left: 16px;
+      border-left: 1px solid #d7d4cb;
+    }
+
+    .section {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-item.featured {
+      grid-column: span 2;
+    }
+  }
+
+  /* PHONES */
+
+  @media (max-width: 480px) {
+    .nav {
+      min-height: 64px;
+      padding: 0 5%;
+    }
+
+    nav {
+      gap: 13px;
+    }
+
+    nav a {
+      font-size: 10px;
+    }
+
+    .project-header {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .project-header {
+      padding-top: 22px;
+    }
+
+    .back-link {
+      margin-bottom: 24px;
+    }
+
+    .project-meta {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .project-meta > div + div {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .project-meta p {
+      font-size: 11px;
+    }
+
+    .gallery-grid {
+      gap: 20px 12px;
+    }
+
+    .section {
+      margin-left: 5%;
+      margin-right: 5%;
+      padding: 26px 0;
+    }
+
+    .gallery-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gallery-item.featured {
+      grid-column: span 2;
+    }
+
+    .next-project {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    footer {
+      flex-wrap: wrap;
+      padding: 20px 5%;
+    }
+  }
+
+  /* ACCESSIBILITY */
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+
+    .gallery-image img {
+      transition: none;
+    }
+  }
+</style>
